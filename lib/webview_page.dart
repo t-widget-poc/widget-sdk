@@ -16,7 +16,7 @@ class _WebViewState extends State<WebViewPage> {
       ),
       body: Builder(builder: (BuildContext context){
         return WebView(
-          initialUrl: "https://flutter.dev/",
+          initialUrl: "https://toyota-wallet.com/",
           javascriptMode: JavascriptMode.unrestricted,
         );
       }),
