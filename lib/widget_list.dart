@@ -26,10 +26,10 @@ class WidgetList extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20.0)),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text("${miniProgramList.widgets[index].name}",
-                  style: TextStyle(
-                    color: Colors.white
-                  ),),
+                  child: Text(
+                    "${miniProgramList.widgets[index].name}",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ),
             );

@@ -69,12 +69,12 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     );
-
   }
 }
 
 Future<MiniProgramList> fetchWidgets() async {
-  final response = await http.get('http://10.0.2.2:8080/widget_list.json');
+  final response =
+      await http.get('https://intense-temple-71236.herokuapp.com/');
 
   if (response.statusCode == 200) {
     print(response.body);
