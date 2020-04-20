@@ -14,16 +14,24 @@ class WidgetList extends StatelessWidget {
       child: ListView.builder(
           itemCount: miniProgramList.widgets.length,
           itemBuilder: (BuildContext context, int index) {
-            return FlatButton(
-              onPressed: () => Navigator.push(
-                  context,
-                  new MaterialPageRoute(
-                      builder: (context) => new WebViewPage(
-                          url: miniProgramList.widgets[index].url))),
-              color: Colors.blue,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20.0)),
-              child: Text("${miniProgramList.widgets[index].name}"),
+            return Align(
+              child: FlatButton(
+                onPressed: () => Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (context) => new WebViewPage(
+                            url: miniProgramList.widgets[index].url))),
+                color: Colors.blue,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0)),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text("${miniProgramList.widgets[index].name}",
+                  style: TextStyle(
+                    color: Colors.white
+                  ),),
+                ),
+              ),
             );
           }),
     );
