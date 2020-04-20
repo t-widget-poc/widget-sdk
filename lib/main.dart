@@ -65,16 +65,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 return CircularProgressIndicator();
               },
             ),
-            FlatButton(
-              onPressed: () => Navigator.of(context).pushNamed('/webview'),
-              color: Colors.blue,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20.0)),
-              child: Text(
-                'Widget',
-                style: TextStyle(color: Colors.white, fontSize: 20.0),
-              ),
-            ),
           ],
         ),
       ),
