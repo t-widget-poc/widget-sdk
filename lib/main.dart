@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:my_flutter/webview_page.dart';
 import 'package:http/http.dart' as http;
 import 'package:my_flutter/widget_list.dart';
 import 'mini_program_list.dart';
@@ -19,7 +18,6 @@ class MyApp extends StatelessWidget {
       home: MyHomePage(title: 'Widget List'),
       routes: <String, WidgetBuilder>{
         '/home': (BuildContext context) => new MyHomePage(title: "Widget List"),
-        '/webview': (BuildContext context) => new WebViewPage()
       },
     );
   }

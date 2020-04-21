@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_custom_tabs/flutter_custom_tabs.dart';
 import 'package:my_flutter/mini_program_list.dart';
-import 'package:my_flutter/webview_page.dart';
 
 class WidgetList extends StatelessWidget {
   final MiniProgramList miniProgramList;
@@ -16,11 +16,7 @@ class WidgetList extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return Align(
               child: FlatButton(
-                onPressed: () => Navigator.push(
-                    context,
-                    new MaterialPageRoute(
-                        builder: (context) => new WebViewPage(
-                            url: miniProgramList.widgets[index].url))),
+                onPressed: () => _launchURL(context, miniProgramList.widgets[index].url),
                 color: Colors.blue,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20.0)),
@@ -35,5 +31,28 @@ class WidgetList extends StatelessWidget {
             );
           }),
     );
+  }
+
+  void _launchURL(BuildContext context, String url) async{
+    try {
+      await launch(
+        url,
+        option: new CustomTabsOption(
+          toolbarColor: Theme.of(context).primaryColor,
+          enableDefaultShare: true,
+          enableUrlBarHiding: true,
+          showPageTitle: true,
+          animation: new CustomTabsAnimation.slideIn(),
+          extraCustomTabs: <String>[
+          // ref. https://play.google.com/store/apps/details?id=org.mozilla.firefox
+          'org.mozilla.firefox',
+          // ref. https://play.google.com/store/apps/details?id=com.microsoft.emmx
+          'com.microsoft.emmx',
+          ],
+        ),
+      );
+    } catch(e){
+      debugPrint(e.toString());
+    }
   }
 }
